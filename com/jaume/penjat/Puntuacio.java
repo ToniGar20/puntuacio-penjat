@@ -15,12 +15,63 @@ public class Puntuacio {
     private final String[] paraules3 = {"escombraries","escopinyes","engronxador","desnonament","malhauradament","malbaratament",};
     private final String[] letresBonus = {"x", "h", "y"};
 
+
+
     public int getIntents() {
         return intents;
     }
 
     public float getTemps() {
         return temps;
+    }
+
+    public String getParaula() {
+        return paraula;
+    }
+
+    public int getDificultat() {
+        return dificultat;
+    }
+
+    public void setDificultat(int dificultat) {
+        this.dificultat = dificultat;
+    }
+
+    public void setIntents(int intents) {
+        this.intents = intents;
+    }
+
+    public long getInici() {
+        return inici;
+    }
+
+    public void setInici(long inici) {
+        this.inici = inici;
+    }
+
+    public void setTemps(float temps) {
+        this.temps = temps;
+    }
+
+    public String[] getParaules1() {
+        return paraules1;
+    }
+
+    public String[] getParaules2() {
+        return paraules2;
+    }
+
+    public String[] getParaules3() {
+        return paraules3;
+    }
+
+    public String[] getLetresBonus() {
+        return letresBonus;
+    }
+
+    public String setParaula(String paraula) {
+        this.paraula = paraula;
+        return paraula;
     }
 
     public String getParaulaSecretaDificultat(int dificultat){
