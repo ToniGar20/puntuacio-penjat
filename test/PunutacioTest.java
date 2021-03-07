@@ -68,7 +68,7 @@ class PuntuacióTest {
     @ParameterizedTest
     @ValueSource(ints = {1,2,3})
     void comprobacioPunts(int difNumber) {
-        float puntsTest=puntuacio.calcularPuntuacio(tauler.getPalabraEndevinada(),puntuacio.getIntents());
+        float puntsTest=puntuacio.calcularPuntuacio(new String[]{"x", "o", "r", "i", "g", "u","e","r"},puntuacio.getIntents());
         float puntsFinals= 1000f;
         float puntsPercentatge = 0f;
         float puntsTemps=100f;
@@ -90,9 +90,7 @@ class PuntuacióTest {
             case 2:
                 puntsPercentatge = 0.2f;
                 puntsTemps*=puntuacio.getDificultat();
-                if(Arrays.stream(tauler.getPalabraEndevinada()).anyMatch("x"::contains) ||
-                        Arrays.stream(tauler.getPalabraEndevinada()).anyMatch("h"::contains) ||
-                        Arrays.stream(tauler.getPalabraEndevinada()).anyMatch("y"::contains)) {
+                if(Arrays.stream(puntuacio.getLetresBonus()).anyMatch(puntuacio.getParaula()::contains)) {
                     puntsPercentatge += 0.01f;
                 } else if (puntsPercentatge > 0) {
                     puntsFinals *= puntsPercentatge;
@@ -107,9 +105,7 @@ class PuntuacióTest {
             case 3:
                 puntsPercentatge = 0.3f;
                 puntsTemps*=puntuacio.getDificultat();
-                if(Arrays.stream(tauler.getPalabraEndevinada()).anyMatch("x"::contains) ||
-                        Arrays.stream(tauler.getPalabraEndevinada()).anyMatch("h"::contains) ||
-                        Arrays.stream(tauler.getPalabraEndevinada()).anyMatch("y"::contains)){
+                if(Arrays.stream(puntuacio.getLetresBonus()).anyMatch(puntuacio.getParaula()::contains)){
                     puntsPercentatge += 0.01f;
                 } else if (puntsPercentatge > 0) {
                     puntsFinals *= puntsPercentatge;
